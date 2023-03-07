@@ -1,0 +1,28 @@
+{
+    "name": "practicaunidad5/chris",
+    "description": "Tarea de la Unidad 5",
+    "type": "project",
+    "license": "GPL",
+    "config": {
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "kylekatarnls/update-helper":false
+        }
+    },
+    "require": {
+        "philo/laravel-blade": "3.1",
+        "milon/barcode": "*",
+        "fzaninotto/faker": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Clases\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chris"
+        }
+    ]
+
+}
