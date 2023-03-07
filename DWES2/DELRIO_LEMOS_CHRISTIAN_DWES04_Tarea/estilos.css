@@ -1,0 +1,12 @@
+body{
+    background-color: #BDECB6;
+    margin:10%;
+    font-family: 'Roboto', sans-serif;
+}
+
+div{
+    padding:20px;
+    border-radius: 1.5%;
+    border: 5px solid whitesmoke;
+    background-color: #87be7e;
+}
