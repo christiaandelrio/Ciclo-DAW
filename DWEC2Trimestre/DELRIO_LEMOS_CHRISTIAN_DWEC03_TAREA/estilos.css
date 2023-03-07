@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(220, 252, 222);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button#abrirVentana{
+    padding:10px;
+    background-color: rgb(89, 147, 104);
+    border: 2px solid rgb(195, 206, 179);
+}
+
+button#cerrarVentana{
+    padding:10px;
+    background-color: rgb(201, 38, 38);
+    border: 2px solid rgb(224, 173, 173);
+}
+
+
+#formulario{
+    border: 2px solid green;
+    padding: 10px;
+    margin: 50px;
+    background-color: rgb(148, 178, 148);
+}
+
+#formulario  button{
+    background-color: rgb(89, 147, 104);
+    border: 1px solid rgb(207, 232, 213);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 8px;
+}
+
+#formulario input{
+    border:1px solid green;
+    border-radius: 5px;
+    margin: 1px;
+}
+
+#formulario label{
+    display: inline-flex;
+    width: 80px;
+}

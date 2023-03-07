@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(202, 173, 214);
+}
+
+div{
+    background-color: rgb(230, 207, 240);
+    border-radius: 5px;
+}
+
+li {
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #333;
+}
+
+p{
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+}
