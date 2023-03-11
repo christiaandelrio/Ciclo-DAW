@@ -1,0 +1,27 @@
+{
+	"name": "usuario/usuario",
+	"description": "p",
+	"type": "project",
+	"require": {
+		"philo/laravel-blade": "3.1",
+		"milon/barcode": "*",
+		"fzaninotto/faker": "*"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"allow-plugins": {
+			"kylekatarnls/update-helper": true
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"Clases\\": "src"
+		}
+	},
+	"license": "GPL",
+	"authors": [
+		{
+			"name": "Sergio"
+		}
+	]
+}
