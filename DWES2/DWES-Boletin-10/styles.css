@@ -1,0 +1,9 @@
+table * {
+    border: 1px solid blue;
+    background-color: rgba(166, 195, 219, 0.952);
+    font-family: monospace;
+}
+
+td {
+    text-align: center;
+}
