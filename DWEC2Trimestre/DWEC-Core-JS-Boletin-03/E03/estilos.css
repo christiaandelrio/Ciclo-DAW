@@ -1,0 +1,27 @@
+body {
+  margin: 10px;
+  background: #b8a9a9;
+}
+
+.salida * {
+  box-sizing: border-box;
+}
+
+.salida ul {
+  padding-left: 0;
+}
+
+.salida li {
+  display: block; 
+  float: left; 
+  width: 25%;
+  border: 2px solid white;
+}
+
+html {
+  font-family: monospace;
+}
+
+h2 {
+  font-size: 16px;
+}

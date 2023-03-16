@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <title>DWEC-JS-B02-01</title>
+</head>
+<body">
+
+    <div class="entrada">
+        <p>
+            <label for="totalMensualVentas">Introduzca el importe mensual total de ventas: </label>
+            <input type="number" min="0" step="any" id="totalMensualVentas" name="totalMensualVentas" />
+        </p>
+        <p>
+            <label for="nombreMes">Introduzca el nombre del mes: </label>
+            <select id="nombreMes" name="nombreMes">
+                  <option value="Enero" selected>Enero</option>
+                  <option value="Febrero">Febrero</option>
+                  <option value="Marzo">Marzo</option>
+                  <option value="Abril">Abril</option>
+                  <option value="Mayo">Mayo</option>
+                  <option value="Junio">Junio</option>
+                  <option value="Julio">Julio</option>
+                  <option value="Agosto">Agosto</option>
+                  <option value="Septiembre">Septiembre</option>
+                  <option value="Octubre">Octubre</option>
+                  <option value="Noviembre">Noviembre</option>
+                  <option value="Diciembre">Diciembre</option>
+             </select>
+        </p>
+    </div> 
+    <div class="salida" style="font-family: monospace;">
+        <p id="totalRecaudado">      Total recaudado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</p>
+        <p id="totalLiquido">        Total líquido&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</p>
+        <p id="impuestosAutonomicos">Impuestos autonómicos&nbsp;&nbsp;:&nbsp;</p>  
+        <p id="impuestosEstatales">  Impuestos estatales&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</p>
+        <p id="impuestosTotales">    Impuestos totales&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</p>     
+    </div> 
+    <button id="botonEnviar" type="submit">Enviar</button>      
+    <button id="botonReset">Reset</button>     
+</body>
+</html>
