@@ -1,0 +1,17 @@
+table   {
+    border: 1px solid rgb(255, 0, 242);
+}
+
+table *  {
+    border: 1px solid blue;
+    background-color: rgba(166, 195, 219, 0.952);
+    font-family: monospace;
+}
+
+td {
+    text-align: center;
+}
+
+.matrix input[type='number']{
+    width: 40px;
+} 
