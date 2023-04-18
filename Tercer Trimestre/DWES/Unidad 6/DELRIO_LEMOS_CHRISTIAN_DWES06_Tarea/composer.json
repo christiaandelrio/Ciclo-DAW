@@ -1,0 +1,23 @@
+{
+    "name": "usuario/usuario",
+    "description": "Tarea 6 de dearrollo web en entorno servidor",
+    "type": "project",
+    "license": "gnu/gpl",
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Clases\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chris"
+        }
+    ],
+    "require": {
+        "php2wsdl/php2wsdl": "^0.6.1",
+        "wsdl2phpgenerator/wsdl2phpgenerator": "^2.4"
+    }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "wingu/reflection",
+  "description": "Library on top of PHP Reflection with some extra helper methods and a more powerful PHP DocBlock and annotation tags reflection",
+  "type": "library",
+  "keywords": [
+    "reflection",
+    "php reflection",
+    "annotations"
+  ],
+  "homepage": "https://github.com/Speicher210/Reflection",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dragos Protung",
+      "email": "dragos@protung.ro",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  },
+  "require-dev": {
+    "symfony/phpunit-bridge": "^5.0",
+    "scrutinizer/ocular": "~1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Wingu\\OctopusCore\\Reflection\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Wingu\\OctopusCore\\Reflection\\Tests\\": "tests"
+    }
+  }
+}

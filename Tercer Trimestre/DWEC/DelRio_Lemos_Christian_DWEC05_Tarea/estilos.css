@@ -1,0 +1,47 @@
+/* Estilos para el cuerpo del formulario */
+body {
+    background-color: #10775f; /* Fondo verde menta */
+    font-family: Arial, sans-serif; /* Fuente Arial */
+    color: #fff; /* Texto en blanco */
+  }
+  
+  /* Estilos para los campos de entrada de texto */
+  input[type=text], input[type=email] {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  
+  
+  /* Estilos para los etiquetas */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff; /* Texto en verde pastel */
+  }
+  
+/* Estilos para el botón "Limpiar" */
+input[type="reset"] {
+    background-color: #575b5b;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-right: 10px;
+    padding:10px;
+  }
+  
+  /* Estilos para el botón "Enviar" */
+  input[type="submit"] {
+    background-color: #6c9b6c;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    padding:10px;
+
+  }
+  
+  /* Estilos para los botones al pasar el mouse por encima */
+  input[type="reset"]:hover,
+  input[type="submit"]:hover {
+    background-color: #6d7d6d;
+  }

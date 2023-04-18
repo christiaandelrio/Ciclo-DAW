@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'usuario/usuario',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => NULL,
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'php2wsdl/php2wsdl' => array(
+            'pretty_version' => '0.6.1',
+            'version' => '0.6.1.0',
+            'reference' => '37c15cdc4cdd15363faf151dc0121ac5595fc513',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php2wsdl/php2wsdl',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'usuario/usuario' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => NULL,
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'wingu/reflection' => array(
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
+            'reference' => '604637061ccc12da7f700865ccb9058e648181dd',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../wingu/reflection',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
