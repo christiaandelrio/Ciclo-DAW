@@ -1,0 +1,70 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: clamp(300px, 60vw, 800px);
+    
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    padding: 2rem;
+}
+
+#formulario input, #formulario label{
+    width: 100%;
+    margin: 3px 0;
+    padding: 5px;
+}
+
+#formulario #provincia{
+    width: 100%;
+    margin: 3px 0;
+    padding: 5px;
+}
+
+#errores{
+    color: red;
+    margin: 1rem 0;
+}
+
+#formulario #enviar{
+    background-color: dodgerblue;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+#formulario #enviar:hover{
+    background-color: rgb(75, 163, 251);
+    transition: all 0.3s ease;
+}
+
+#formulario #reset{
+    background-color: rgb(255, 30, 30);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+#formulario #reset:hover{
+    background-color: rgb(252, 102, 102);
+    transition: all 0.3s ease;
+}
