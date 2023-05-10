@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    text-align: center;
+    padding: 1vw;
+    background: url('./portal.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1{
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#salida{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3vw;
+    padding: 5vw;
+}
+
+.card{
+    width: 300px;
+}
+
+img{
+    border-radius: 5%;
+    width: 100%;
+    height: auto;
+}
+
+.error-img{
+    width: 50%;
+    height: auto;
+}

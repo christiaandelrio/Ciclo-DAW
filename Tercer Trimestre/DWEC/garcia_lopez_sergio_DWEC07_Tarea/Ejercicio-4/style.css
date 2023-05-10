@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    text-align: center;
+    padding: 1vw;
+}
+
+#salida{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3vw;
+    padding: 5vw;
+}
+
+.card{
+    flex-basis: 20vw;
+}
+
+img{
+    border-radius: 5%;
+    width: 100%;
+    height: auto;
+}
+
+.error-img{
+    width: 50%;
+    height: auto;
+}
