@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>DWEC07 Tarea - Ejemplo petición XML mediante HttpRequest</title>
+		<script type="text/javascript">
+			let peticion;
+			const iniciar = () => {
+                //Instanciamos un nuevo objeto XMLHttpRequest
+				peticion = new XMLHttpRequest(); 
+                //Con el método open especificamos la solicitud (si true, la gestión es asíncrona)
+				peticion.open('GET', "https://api.tutiempo.net/xml/?lan=es&apid=zsGz44zXaX487Qi&lid=2770");
+              
+                //Mediante el método send enviamos la solicitud al servidor
+				peticion.send();
+                //Cuando la petición se cargue, llamamos a la función "cargada"
+				peticion.addEventListener("load", cargada);
+			}
+
+			const cargada = () => {
+				let resultados = '';
+                let copyright= peticion.responseXML.documentElement.getElementsByTagName("copyright");
+                let uso = peticion.responseXML.documentElement.getElementsByTagName("use");
+				let infoUnidades = peticion.responseXML.documentElement.getElementsByTagName("information");
+                let web = peticion.responseXML.documentElement.getElementsByTagName("web");
+                let idioma = peticion.responseXML.documentElement.getElementsByTagName("language");
+				let location = peticion.responseXML.documentElement.getElementsByTagName("locality");
+                let tiempoHoy = peticion.responseXML.documentElement.getElementsByTagName("day1");
+                let tiempoHoras = peticion.responseXML.documentElement.getElementsByTagName("hour_hour");
+                
+                resultados +=`<h1><b>Información meteorológica</b></h1>`;
+                resultados +=`<p><b>${copyright[0].innerHTML}</b><p>`;
+                resultados +=`<p>${uso[0].innerHTML}<p>`;
+                resultados += '<label><u>Unidades de medida</label></u>';
+                resultados += '<ul>';
+                for(let i=0; i<infoUnidades.length;i++){
+                    resultados += `<li><b>Temperatura: </b>${infoUnidades[i].getElementsByTagName('temperature')[0].innerHTML}</li>`;
+                    resultados += `<li><b>Viento: </b>${infoUnidades[i].getElementsByTagName('wind')[0].innerHTML}</li>`;
+                    resultados += `<li><b>Humedad: </b>${infoUnidades[i].getElementsByTagName('humidity')[0].innerHTML}</li>`;
+                    resultados += `<li><b>Presión: </b>${infoUnidades[i].getElementsByTagName('pressure')[0].innerHTML}</li>`;
+                }
+                resultados += '</ul>';
+                resultados += `<p>Toda la información en la web ${web[0].innerHTML}</p>`;
+                resultados += `<p>Idioma: ${idioma[0].innerHTML}</p>`;
+                resultados += '<label><u>Datos de la localidad</label></u>';
+				resultados += '<ul>';
+                for(let i=0; i<location.length;i++){
+                    resultados += `<li><b>Nombre: </b>${location[i].getElementsByTagName('name')[0].innerHTML}</li>`;
+                    resultados += `<li><b>El tiempo en 15 días:  </b><a href='${location[i].getElementsByTagName('url_weather_forecast_15_days')[0].innerHTML}'>${location[i].getElementsByTagName('url_weather_forecast_15_days')[0].innerHTML}</a></li>`;
+                    resultados += `<li><b>El tiempo en horas: </b><a href='${location[i].getElementsByTagName('url_hourly_forecast')[0].innerHTML}'>${location[i].getElementsByTagName('url_hourly_forecast')[0].innerHTML}</a></li>`;
+                    resultados += `<li><b>País: </b>${location[i].getElementsByTagName('country')[0].innerHTML}</li>`;
+                    resultados += `<li><b>El tiempo en ${location[i].getElementsByTagName('country')[0].innerHTML}: </b><a href='${location[i].getElementsByTagName('url_country')[0].innerHTML}'>${location[i].getElementsByTagName('url_country')[0].innerHTML}</a></li>`;
+                }
+                resultados += '</ul>';
+                resultados += '<label><u>El tiempo hoy:</label></u>';
+                resultados += '<ul>';
+                for (let i = 0; i < tiempoHoy.length; i++) {
+                resultados += `<li><b>Fecha: ${tiempoHoy[i].getElementsByTagName('date')[0].innerHTML}&nbsp&nbsp</b> <img src='https://v5i.tutiempo.net/wi/01/30/${tiempoHoy[i].getElementsByTagName('icon')[0].innerHTML}.png'></li></li><br>`;
+                resultados += '<ul>';
+                resultados += `<li>Temperatura máxima: ${tiempoHoy[i].getElementsByTagName('temperature_max')[0].innerHTML} ºC</li>`;
+				resultados += `<li>Temperatura mínima: ${tiempoHoy[i].getElementsByTagName('temperature_min')[0].innerHTML} ºC</li>`;
+                resultados += `<li>Predicción: ${tiempoHoy[i].getElementsByTagName('text')[0].innerHTML}</li>`;
+                resultados += `<li>Humedad: ${tiempoHoy[i].getElementsByTagName('humidity')[0].innerHTML} %</li>`;
+                resultados += `<li>Viento: ${tiempoHoy[i].getElementsByTagName('wind')[0].innerHTML} km/h</li> `;
+                resultados += `<li>Dirección del viento: ${tiempoHoy[i].getElementsByTagName('wind_direction')[0].innerHTML}<br><img src='https://v5i.tutiempo.net/wd/big/black/${tiempoHoy[i].getElementsByTagName('icon_wind')[0].innerHTML}.png'></li>`;
+                resultados += `<li>Amanecer: ${tiempoHoy[i].getElementsByTagName('sunrise')[0].innerHTML} h</li>`;
+                resultados += `<li>Puesta de sol: ${tiempoHoy[i].getElementsByTagName('sunset')[0].innerHTML} h</li>`;
+                resultados += `<li>Salida de la luna: ${tiempoHoy[i].getElementsByTagName('moonrise')[0].innerHTML} h</li>`;
+                resultados += `<li>Puesta de luna: ${tiempoHoy[i].getElementsByTagName('moonset')[0].innerHTML} h</li>`;
+                resultados += `<li>Fase lunar: <br><img src='https://v5i.tutiempo.net/wmi/02/${tiempoHoy[i].getElementsByTagName('moon_phases_icon')[0].innerHTML}.png'></li>`;
+				resultados += '</ul><br>';
+                }
+                resultados += '</ul>';
+                resultados += `<label><u>El tiempo hoy (<b>${tiempoHoras[0].getElementsByTagName('date')[0].innerHTML}</b>) en horas:</label></u>`;
+                resultados += '<ul>';
+                for (let i = 0; i < 24; i++) {
+                resultados += `<li><b>Hora: ${peticion.responseXML.documentElement.getElementsByTagName('hour_data')[i].innerHTML} h</b>&nbsp&nbsp<img src='https://v5i.tutiempo.net/wi/01/30/${peticion.responseXML.documentElement.getElementsByTagName('icon')[i].innerHTML}.png'></li><br>`;
+				resultados += '<ul>';
+                resultados += `<li>Temperatura: ${peticion.responseXML.documentElement.getElementsByTagName('temperature')[i].innerHTML} ºC</li>`;
+                resultados += `<li>Predicción: ${peticion.responseXML.documentElement.getElementsByTagName('text')[i].innerHTML}</li>`;
+                resultados += `<li>Humedad: ${peticion.responseXML.documentElement.getElementsByTagName('humidity')[i].innerHTML} %</li>`;
+                resultados += `<li>Presión: ${peticion.responseXML.documentElement.getElementsByTagName('pressure')[i].innerHTML} hPa</li>`;
+                resultados += `<li>Nivel de viento: ${peticion.responseXML.documentElement.getElementsByTagName('wind')[i].innerHTML} km/h</li>`;
+                resultados += `<li>Dirección del viento: ${peticion.responseXML.documentElement.getElementsByTagName('wind_direction')[i].innerHTML}<br><img src='https://v5i.tutiempo.net/wd/big/black/${peticion.responseXML.documentElement.getElementsByTagName('icon_wind')[i].innerHTML}.png'></li>`;
+				resultados += '</ul><br>';
+                }
+				resultados += '</ul>';
+                //Metemos los resultados en el contenedor de resultados
+				document.getElementById("resultados").innerHTML = resultados;
+			}
+
+			window.addEventListener("load", iniciar, false);
+		</script>
+		<style>
+			#resultados{
+				background: rgb(243, 243, 169);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="resultados"></div>
+	</body>
+</html>

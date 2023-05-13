@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>DWEC07 Tarea - Ejemplo petición XML mediante HttpRequest</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+                $.get('https://api.tutiempo.net/xml/?lan=es&apid=zsGz44zXaX487Qi&lid=2770', function(respuesta) {
+                    let datos="<h1>Información meteorológica</h1>";
+                    //Inicializamos las variables con los datos
+                    let copyright=$(respuesta).find("copyright").text();
+                    let use=$(respuesta).find("use").text();
+                    let nombre=$(respuesta).find("name").text();
+                    let web=$(respuesta).find("web").text();
+                    let idioma=$(respuesta).find("language").text();
+                    let webDias=$(respuesta).find("url_weather_forecast_15_days").text();
+                    let webHoras=$(respuesta).find("url_hourly_forecast").text();
+                    let pais=$(respuesta).find("country").text();
+                    let dia=$(respuesta).find("day1");
+                    let hoy=$(dia).find("date").text();
+                    let tempMax=$(dia).find("temperature_max").text();
+                    let tempMin=$(dia).find("temperature_min").text();
+                    let icon=$(dia).find("icon").text();
+                    let prediccion=$(dia).find("text").text();
+                    let humedad=$(dia).find("humidity").text();
+                    let wind=$(dia).find("wind").text();
+                    let windD=$(dia).find("wind_direction").text();
+                    let iconWind=$(dia).find("icon_wind").text();
+                    let sunrise=$(dia).find("sunrise").text();
+                    let sunset=$(dia).find("sunset").text();
+                    let moonrise=$(dia).find("moonrise").text();
+                    let moonset=$(dia).find("moonset").text();
+                    let iconoMoon=$(dia).find("moon_phases_icon").text();
+                    
+                    //Imprimimos los datos
+                    datos += "<p>"+copyright+"<p>";
+                    datos += "<p>"+use+"<p>";
+                    datos += "<p>Toda la información meteorológica en <a href='"+web+"'>"+web+"</a><p>";
+                    datos += "<p><b>Idioma: </b>"+idioma+"<p>";
+                    datos += "<label><b>Localidad:</b></label>"; 
+                    datos += "<ul>"; 
+                    datos += "<li><b>Nombre: </b>"+nombre+"</li>";
+                    datos += "<li><b>URL del tiempo en 15 días: </b><a href='"+webDias+"'>"+webDias+"</a></li>";
+                    datos += "<li><b>URL del tiempo por horas: </b><a href='"+webHoras+"'>"+webHoras+"</a></li>";
+                    datos += "<li><b>País: </b>"+pais+"</li>";
+                    datos += "</ul>"; 
+                    datos += "<label><b>El tiempo hoy "+hoy+":</b></label>"; 
+                    datos += "<ul>";
+                    datos += "<li><b>Temperatura máxima: </b>"+tempMax+" ºC</li>"; 
+                    datos += "<li><b>Temperatura mínima: </b>"+tempMin+" ºC</li><br>";
+                    datos += "<img src='https://v5i.tutiempo.net/wi/01/30/"+icon+".png'><br>";
+                    datos += "<li><b>Humedad: </b>"+humedad+" %</li>";
+                    datos += "<li><b>Viento: </b>"+wind+" km/h</li>";
+                    datos += "<li><b>Dirección del viento: </b>"+windD+"</li><br>";
+                    datos += "<img src='https://v5i.tutiempo.net/wd/big/black/"+iconWind+".png'><br>";
+                    datos += "<li><b>Amanecer: </b>"+sunrise+"</li>";
+                    datos += "<li><b>Atardecer: </b>"+sunset+"</li>";
+                    datos += "<li><b>Salida de luna: </b>"+moonrise+"</li>";
+                    datos += "<li><b>Puesta de luna: </b>"+moonset+"</li><br>";
+                    datos += "<img src='https://v5i.tutiempo.net/wmi/02/"+iconoMoon+".png'><br>";
+                    datos += "</ul>"; 
+                    
+                    //Añadimos al contenedor de "resultados" la variable datos
+                    $(resultados).append(datos);
+                
+                //En caso de que la petición falle, se alertará al usuario
+				}).fail(function( jqXHR, textStatus, errorThrown ){
+					if (jqXHR.status === 0) {
+						alert('Sin conexión a internet.');
+					} else if (jqXHR.status == 404) {
+						alert('Página no encontrada');
+					} else if (jqXHR.status == 500) {
+						alert('Error del servidor.');
+					}
+                });
+            });
+		</script>
+		<style>
+			#resultados{
+				background: rgb(243, 243, 169);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="resultados"></div>
+	</body>
+</html>

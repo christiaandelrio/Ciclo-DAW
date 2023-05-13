@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>DWEC07 Tarea - Ejemplo petición JSON mediante HttpRequest</title>
+		<script type="text/javascript">let peticionPokemons;
+			const iniciar = () => {
+				//Instanciamos un nuevo objeto XMLHttpRequest
+				peticionPokemons = new XMLHttpRequest(); 
+				//Definimos la variable buscar para el botón con id "buscar"
+				const buscar=document.getElementById("buscar");
+		
+				//Definimos la función "búsqueda"
+				const busqueda =(evento)=>{
+					evento.preventDefault();
+					//Variable del contenido el input
+					let buscarInputRaw=document.getElementById("buscarInput").value;
+					//Parseamos el contenido a minúsculas
+					let buscarInput=buscarInputRaw.toLowerCase();
+					//Variable que contruirá la cadena de la url del método open de la petición, con lo introducido en el input de id "buscarInput"
+					let busquedaPokemon= `https://pokeapi.co/api/v2/pokemon/${buscarInput}/`;
+		
+					//Con el método open especificamos la solicitud
+					peticionPokemons.open('GET',`${busquedaPokemon}`);
+					//Mediante el método send enviamos la solicitud al servidor
+					peticionPokemons.send();
+					
+					//Definimos la función "cargada" que se llamará cuando la función esté cargada
+					const cargada = () => {
+						//Si se produce un error nos manda un alert mediante la propiedad que nos indica el estado de la petición
+						if(peticionPokemons.status==404){
+							alert("Por favor, introduce un nombre válido");
+							document.getElementById("buscarInput").focus();
+						}
+						let resultados='';
+                		let pokemons = JSON.parse(peticionPokemons.responseText);//Para recibir los datos tenemos que parsearlos a JSON mediante JSON.parse(respuesta)
+						document.getElementById("resultados").style.backgroundImage=`url(${pokemons.sprites.other.dream_world.front_default})`;
+						document.getElementById("resultados").style.backgroundRepeat="no-repeat";
+						document.getElementById("resultados").style.backgroundSize="75%";
+						document.getElementById("resultados").style.backgroundPosition="bottom 50px right 100px";
+						resultados+=`<img src=${pokemons.sprites.front_default}>
+									<img src=${pokemons.sprites.front_shiny}>
+									<img src=${pokemons.sprites.back_default}>
+									<img src=${pokemons.sprites.back_shiny}>`;
+						resultados += '<ul>';
+						resultados+=`<li><b>Nombre: </b>${pokemons.name}</li>`;
+						resultados+=`<li><b>Puntos de experiencia ganados por derrotarlo: </b>${pokemons.base_experience}.</li>`;
+						resultados+=`<li><b>Altura: </b>${pokemons.height} decímetros.</li>`;
+						resultados+=`<li><b>Peso: </b>${pokemons.weight} hectogramos.</li>`;
+						resultados += '<li><b>Habilidades: </b></li>';
+						resultados += '<ul><br>'
+							for(let i=0; i<(pokemons.abilities).length;i++){
+								resultados+=`<li>${pokemons.abilities[i].ability.name}</li>`;
+							}
+						resultados += '</ul><br>';
+						resultados += '<li><b>Formas que puede adoptar: </b></li>';
+						resultados += '<ul><br>'
+							for(let i=0; i<(pokemons.forms).length;i++){
+								resultados+=`<li>${pokemons.forms[i].name}</li>`;
+							}
+						resultados += '</ul><br>';
+						resultados += '<li><b>Indices de juego: </b></li>';
+						resultados += '<ul><br>'
+							for(let i=0; i<(pokemons.game_indices).length;i++){
+								resultados+=`<li>${pokemons.game_indices[i].game_index} - ${pokemons.game_indices[i].version.name}</li>`;
+							}
+						resultados += '</ul><br>';
+						resultados += '<li><b>Objetos que porta: </b></li>';
+						resultados += '<ul><br>'
+							for(let i=0; i<(pokemons.held_items).length;i++){
+								resultados+=`<li><b>Nombre del objeto: </b>${pokemons.held_items[i].item.name}</li>`;
+								resultados += '<ul><br>'
+									resultados+=`<li><b>Nivel de rareza: </b>${pokemons.held_items[i].version_details[0].rarity}</li>`;
+								resultados += '</ul><br>';
+							}
+						resultados += '</ul><br>';
+						resultados += '<li><b>Movimientos: </b></li>';
+						resultados += '<ul><br>'
+							for(let i=0; i<(pokemons.moves).length;i++){
+								resultados+=`<li><b>${pokemons.moves[i].move.name}</b> (Grupo: ${pokemons.moves[i].version_group_details[0].version_group.name}) </li>`;
+							}
+						resultados += '</ul><br>';
+						resultados += `<li><b>Especie a la que pertenece:  </b>${pokemons.species.name}</li>`;
+						resultados += '</ul><br>';
+						//Mostramos los datos en el contenedor resultados
+						document.getElementById("resultados").innerHTML = resultados;
+					}
+		
+					//Cuando la petición se cargue, llamamos a la función "cargada"
+					peticionPokemons.addEventListener("load", cargada);
+				}
+				//Cuando se pulse el botón de "Buscar" se llamará a la función "búsqueda"
+				buscar.addEventListener("click", busqueda); 
+			}
+			//Cuando la página se cargue, llamamos a la función "iniciar"
+			window.addEventListener("load", iniciar, false);</script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg bg-primary-subtle">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"><img src="./pokeapi_logo.png" alt="Logo" width="104" height="42" class="d-inline-block align-text-top"></a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#">Buscador de Pokemons</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="https://pokeapi.co/">API</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="https://pokeapi.co/about">About</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link disabled"></a>
+				  </li>
+				</ul>
+				<form class="d-flex" role="search">
+					<input class="form-control me-2" id="buscarInput" name="buscarInput" type="search" placeholder="Introduce un nombre de Pokémon" style="width: 350px;" aria-label="Search" required>
+					<button class="btn btn-outline-primary" id="buscar" style="width: 200px;">Buscar</button>
+				</form>
+			  </div>
+			</div>
+		  </nav>
+		<div class="container-fluid bg-warning-subtle"  id="resultados">
+		</div>
+	</body>
+</html>

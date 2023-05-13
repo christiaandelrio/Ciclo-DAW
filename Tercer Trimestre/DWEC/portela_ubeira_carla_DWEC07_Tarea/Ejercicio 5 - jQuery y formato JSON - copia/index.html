@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWEC07 Tarea - Ejemplo petición JSON mediante jQuery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script> 
+	<script type="text/javascript">
+		//Cuando se carga la página se llama a la función
+        $("document").ready(function(){
+			//Ponemos el foco en el input de id"buscar"
+			$("#buscarInput").focus();
+			//Cuando se clicka en el botón de "Buscar" se inicia el evento
+			$("#buscar").click(function(event){
+				//Se cancela el comportamiento por defecto para evitar que se refresque la página
+				event.preventDefault();
+				//Tomamos el valor del campo input
+				let buscar=$("#buscarInput").val();
+				//Lo pasamos a minúsculas para que no se produzca un error en la búsqueda
+				let busqueda=buscar.toLowerCase();
+				//Realizamos la consulta que llama a la función que va a gestionar los resultados de la consulta
+				$.getJSON("https://pokeapi.co/api/v2/pokemon/"+busqueda+"/",function(pokemons){
+					//Imprimimos los datos obtenidos
+					//Inicializamos la variable de resultados para que sea accesible a todas las funciones
+					let resultados="";
+					resultados+="<p><b>Nombre: </b>"+pokemons.name+"</p>";
+					resultados+="<img src="+pokemons.sprites.front_default+"><img src="+pokemons.sprites.front_shiny+"><img src="+pokemons.sprites.back_default+"><img src="+pokemons.sprites.back_shiny+">";
+					resultados+="<li><b>Puntos de experiencia ganados por derrotarlo: </b>"+pokemons.base_experience+".</li>";
+					resultados+="<li><b>Altura: </b>"+pokemons.height+" decímetros.</li>";
+					resultados+="<li><b>Peso: </b>"+pokemons.weight+"hectogramos.</li>";
+					resultados += '<li><b>Habilidades: </b></li>';
+					resultados += '<ul><br>'
+						for(let i=0; i<(pokemons.abilities).length;i++){
+							resultados+="<li>"+pokemons.abilities[i].ability.name+"</li>";
+						}
+					resultados += '</ul><br>';
+					resultados += '<li><b>Formas que puede adoptar: </b></li>';
+					resultados += '<ul><br>'
+						for(let i=0; i<(pokemons.forms).length;i++){
+							resultados+="<li>"+pokemons.forms[i].name+"</li>";
+						}
+					resultados += '</ul><br>';
+					resultados += '<li><b>Indices de juego: </b></li>';
+					resultados += '<ul><br>'
+						for(let i=0; i<(pokemons.game_indices).length;i++){
+							resultados+="<li>"+pokemons.game_indices[i].game_index+" - "+pokemons.game_indices[i].version.name+"</li>";
+						}
+					resultados += '</ul><br>';
+					resultados += '<li><b>Objetos que porta: </b></li>';
+					resultados += '<ul><br>'
+						for(let i=0; i<(pokemons.held_items).length;i++){
+							resultados+="<li><b>Nombre del objeto: </b>"+pokemons.held_items[i].item.name+"</li>";
+							resultados += '<ul><br>'
+								resultados+="<li><b>Nivel de rareza: </b>"+pokemons.held_items[i].version_details[0].rarity+"</li>";
+							resultados += '</ul><br>';
+						}
+					resultados += '</ul><br>';
+					resultados += '<li><b>Movimientos: </b></li>';
+					resultados += '<ul><br>'
+						for(let i=0; i<(pokemons.moves).length;i++){
+							resultados+="<li><b>"+pokemons.moves[i].move.name+"</b> (Grupo: "+pokemons.moves[i].version_group_details[0].version_group.name+") </li>";
+						}
+					resultados += '</ul><br>';
+					resultados += "<li><b>Especie a la que pertenece:  </b>"+pokemons.species.name+"</li>";
+					resultados += '</ul><br>';
+					let fondo=pokemons.sprites.other.dream_world.front_default;
+					//Modificamos el css con los datos obtenidos en la consulta
+					$("#resultados").css("backgroundImage","url("+pokemons.sprites.other.dream_world.front_default+")");
+					$("#resultados").css("backgroundRepeat","no-repeat");
+					$("#resultados").css("backgroundSize","75%");
+					$("#resultados").css("backgroundPosition","bottom 50px right 100px");
+					$("#resultados").css("backgroundRepeat","no-repeat");
+					$("#resultados").css("backgroundSize","75%");
+					$("#resultados").css("backgroundPosition","bottom 50px right 100px");
+					$("#resultados").append(resultados);
+					//En caso de que la petición falle, se alertará al usuario
+				}).fail(function( jqXHR, textStatus, errorThrown ){
+					if (jqXHR.status === 0) {
+						alert('Sin conexión a internet.');
+					} else if (jqXHR.status == 404) {
+						alert('Por favor, introduce un nombre válido');
+					} else if (jqXHR.status == 500) {
+						alert('Error del servidor.');
+					}
+				});
+			});
+		});
+    </script>
+</head>
+    <body>
+		<nav class="navbar navbar-expand-lg bg-primary-subtle">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"><img src="./pokeapi_logo.png" alt="Logo" width="104" height="42" class="d-inline-block align-text-top"></a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#">Buscador de Pokemons</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="https://pokeapi.co/">API</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="https://pokeapi.co/about">About</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link disabled"></a>
+				  </li>
+				</ul>
+				<form class="d-flex" role="search">
+					<input class="form-control me-2" id="buscarInput" name="buscarInput" type="search" placeholder="Introduce un nombre de Pokémon" style="width: 350px;" aria-label="Search" required>
+					<button class="btn btn-outline-primary" id="buscar" style="width: 200px;">Buscar</button>
+				</form>
+			  </div>
+			</div>
+		  </nav>
+		<div class="container-fluid bg-warning-subtle"  id="resultados">
+		</div>
+	</body>
+</html>
