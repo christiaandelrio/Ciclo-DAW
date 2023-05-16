@@ -1,0 +1,241 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color: #e60012; */
+    background-color: #bf0010;
+    min-height: 100vh;
+    min-width: 100%;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+a{
+    color: white;
+    font-weight: bold;
+}
+
+/* ----- Header ----- */
+
+header{
+    background-color: white;
+    color: #bf0010;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 50px;
+}
+
+#logo{
+    width: 200px;
+    height: auto;
+}
+
+header h2{
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    display: inline-block;
+    color: #ed333d;
+    font-style: italic;
+    margin-left: 20px;
+}
+
+/* ----- Main ----- */
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+main h2{
+    font-size: 2rem;
+}
+
+article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+
+
+/* ----- Article gif-container ----- */
+
+#gif-container img{
+    margin-top: 20px;
+    width: clamp(300px, 70vw, 1000px);
+    height: auto;
+}
+
+/* ----- Article proceso-container ----- */
+
+#proceso{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: clamp(20px, 1vw, 30px);
+    flex-wrap: wrap;
+    margin-top: 50px;
+    width: 90%;
+}
+
+#proceso img{
+    width: clamp(300px, 45vw, 600px);
+    height: auto;
+}
+
+#proceso p{
+    font-size: 1.2rem;
+    width: clamp(300px, 45vw, 600px);
+    text-align: justify;
+    margin-block: 10px;
+}
+
+/* ----- Article opinion-container ----- */
+
+#opinion-container{
+    background-color: white;
+    color: #bf0010;
+    min-height: 100vh;
+    min-width: 100%;
+}
+
+#opinion-container div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-block: 50px;
+}
+
+#opinion-container img{
+    width: clamp(300px, 30%, 400px);
+    height: auto;
+}
+
+
+#opinion-container p{
+    color: black;
+    font-size: 1.2rem;
+    margin-block: 20px;
+    width: clamp(300px, 30%, 400px);
+    display: inline-block;
+    line-height: 2rem;
+}
+
+/* ----- Article mejor-opcion-container ----- */
+
+#mejor-opcion-container p{
+    font-size: 1.2rem;
+    margin-block: 20px;
+    width: 80%;
+    line-height: 2rem;
+    margin-bottom: 50px;
+}
+
+#ejemplos-animaciones{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-block: 50px;
+}
+
+#ejemplos-animaciones .ejemplo{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* ----- Ejemplo 1 (cuadrado CSS) ------ */
+
+#ejemplos-animaciones .square{
+    width: 30%;
+    height: 30%;
+    margin-top: 90px;
+    background-color: white;
+    animation: rotation 5s infinite linear, coloration 5s infinite linear;
+    border-radius: 20px;
+}
+
+@keyframes rotation {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(90deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(270deg);}
+    100% {transform: rotate(360deg);}
+}
+
+@keyframes coloration {
+    0% {background-color: white;}
+    25% {background-color: #ed333d;}
+    50% {background-color: #bf0010;}
+    75% {background-color: #ed333d;}
+    100% {background-color: white;}
+}
+
+/* ----- Ejemplo 3 (Animista.net) ------ */
+
+.animista-style img{
+    width: 50px;
+    height: auto;
+    margin-top: 120px;
+}
+
+.text-animate{
+    font-size: 2rem;
+    margin-top: 100px;
+}
+
+.flip-scale-up-hor{
+    -webkit-animation: flip-scale-up-hor 3s linear infinite;
+    animation: flip-scale-up-hor 3s linear inifinite;
+}
+
+@-webkit-keyframes flip-scale-up-hor{0%{-webkit-transform:scale(1) rotateX(0);transform:scale(1) rotateX(0)}50%{-webkit-transform:scale(2.5) rotateX(-90deg);transform:scale(2.5) rotateX(-90deg)}100%{-webkit-transform:scale(1) rotateX(-180deg);transform:scale(1) rotateX(-180deg)}}@keyframes flip-scale-up-hor{0%{-webkit-transform:scale(1) rotateX(0);transform:scale(1) rotateX(0)}50%{-webkit-transform:scale(2.5) rotateX(-90deg);transform:scale(2.5) rotateX(-90deg)}100%{-webkit-transform:scale(1) rotateX(-180deg);transform:scale(1) rotateX(-180deg)}}
+
+
+/* ----- Ejemplo 4 (Animate.style) ------ */
+
+.animate-style p{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 100px !important;
+}
+
+.animate-style img{
+    width: 50px;
+    height: auto;
+    margin-top: 120px;
+}
+
+
+/* ----- Footer ----- */
+
+footer{
+    background-color: white;
+    color: #bf0010;
+    height: 100px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer h4{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
