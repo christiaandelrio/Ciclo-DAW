@@ -1,0 +1,106 @@
+{
+    "coord": {
+        "lon": -8.7651,
+        "lat": 42.2648
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "cielo claro",
+            "icon": "01d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 18.99,
+        "feels_like": 18.28,
+        "temp_min": 18.51,
+        "temp_max": 18.99,
+        "pressure": 1019,
+        "humidity": 51
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 5.66,
+        "deg": 30,
+        "gust": 10.8
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1684000812,
+    "sys": {
+        "type": 2,
+        "id": 2012195,
+        "country": "ES",
+        "sunrise": 1683954988,
+        "sunset": 1684007188
+    },
+    "timezone": 7200,
+    "id": 3126577,
+    "name": "Cangas do Morrazo",
+    "cod": 200
+}
+
+
+
+Array
+(
+    [coord] => Array
+        (
+            [lon] => -8.7651
+            [lat] => 42.2648
+        )
+
+    [weather] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 800
+                    [main] => Clear
+                    [description] => cielo claro
+                    [icon] => 01d
+                )
+
+        )
+
+    [base] => stations
+    [main] => Array
+        (
+            [temp] => 18.99
+            [feels_like] => 18.28
+            [temp_min] => 18.51
+            [temp_max] => 18.99
+            [pressure] => 1019
+            [humidity] => 51
+        )
+
+    [visibility] => 10000
+    [wind] => Array
+        (
+            [speed] => 5.66
+            [deg] => 30
+            [gust] => 10.8
+        )
+
+    [clouds] => Array
+        (
+            [all] => 0
+        )
+
+    [dt] => 1684000812
+    [sys] => Array
+        (
+            [type] => 2
+            [id] => 2012195
+            [country] => ES
+            [sunrise] => 1683954988
+            [sunset] => 1684007188
+        )
+
+    [timezone] => 7200
+    [id] => 3126577
+    [name] => Cangas do Morrazo
+    [cod] => 200
+)

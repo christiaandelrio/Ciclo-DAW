@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": -8.7651,
+        "lat": 42.2648
+    },
+    "weather": [
+        {
+            "id": 801,
+            "main": "Clouds",
+            "description": "few clouds",
+            "icon": "02d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 293.25,
+        "feels_like": 292.62,
+        "temp_min": 292.66,
+        "temp_max": 293.25,
+        "pressure": 1019,
+        "humidity": 50
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 5.66,
+        "deg": 30
+    },
+    "clouds": {
+        "all": 20
+    },
+    "dt": 1683997430,
+    "sys": {
+        "type": 2,
+        "id": 2012195,
+        "country": "ES",
+        "sunrise": 1683954988,
+        "sunset": 1684007188
+    },
+    "timezone": 7200,
+    "id": 3126577,
+    "name": "Cangas do Morrazo",
+    "cod": 200
+}

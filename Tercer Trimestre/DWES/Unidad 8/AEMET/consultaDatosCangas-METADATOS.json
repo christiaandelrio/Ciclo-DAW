@@ -1,0 +1,322 @@
+[{
+	"unidad_generadora": "Área de Explotación y Gestión de Datos",
+	"periodicidad": "Cuatro veces al día que afectan a todas las variables, excepto a las temperaturas máxima y mínima, que pueden actualizarse más a menudo",
+	"descripcion": "Predicciones en municipios de España. Se generan de forma automática mediante el tratamiento estadístico de los resultados de modelos numéricos de predicción",
+	"formato": "json/xml",
+
+	"campos": [{
+			"origen": [{
+					"id": "productor",
+					"descripcion": "Agencia Estatal de Meteorología - AEMET. Gobierno de España",
+					"tipo_datos": "string",
+					"requerido": true
+				},
+
+				{
+					"id": "web",
+					"descripcion": "URL de la Web de AEMET - https://www.aemet.es",
+					"tipo_datos": "string",
+					"requerido": true
+				},
+
+				{
+					"id": "language",
+					"descripcion": "es",
+					"tipo_datos": "string",
+					"requerido": true
+				},
+
+				{
+					"id": "copyright",
+					"descripcion": "© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma.",
+					"tipo_datos": "string",
+					"requerido": true
+				},
+
+				{
+					"id": "nota_legal",
+					"descripcion": "https://www.aemet.es/es/nota_legal/nota_legal",
+					"tipo_datos": "string",
+					"requerido": true
+				}
+			]
+		}, {
+			"id": "id",
+			"descripcion": "Indicativo de municipio",
+			"tipo_datos": "string",
+			"requerido": true
+		},
+
+		{
+			"id": "version",
+			"descripcion": "Versión",
+			"tipo_datos": "float",
+			"requerido": true
+		},
+
+		{
+			"id": "elaborado",
+			"descripcion": "Fecha de elaboración",
+			"tipo_datos": "dataTime",
+			"requerido": true
+		}, {
+			"id": "nombre",
+			"descripcion": "Nombre del municipio",
+			"tipo_datos": "string",
+			"requerido": true
+		},
+
+		{
+			"id": "provincia",
+			"descripcion": "Provincia a la que pertenece el municipio",
+			"tipo_datos": "string",
+			"requerido": true
+		}, {
+			"prediccion": [{
+				"dia": [{
+						"id": "fecha",
+						"descripcion": "Período de validez de la Predicción",
+						"tipo_datos": "date",
+						"requerido": false
+					},
+
+					{
+						"probPrecipitacion": [{
+								"id": "periodo",
+								"descripcion": "Periodo de validez para la probabilidad de precipitación (00-06, 06-12, 12-18, 18-24, 00-12,00 - 24,12 - 24)",
+								"tipo_datos": "string",
+								"requerido": false
+							},
+
+
+							{
+								"id": "value",
+								"descripcion": "Valor de la probabilidad de precipitación",
+								"tipo_datos": "string",
+								"unidad": "Tanto por ciento (%)",
+								"requerido": false
+							}
+						]
+
+					}, {
+
+						"cotaNieveProv": [{
+								"id": "periodo",
+								"descripcion": "Periodo de validez para la cota de nieve (00-06, 06-12, 12-18, 18-24, 00-12, 00-24, 12-24)",
+								"tipo_datos": "string",
+								"requerido": false
+							},
+
+							{
+								"id": "value",
+								"descripcion": "Valor de la cota de nieve",
+								"tipo_datos": "string",
+								"unidad": "metros (m)",
+								"requerido": false
+							}
+						]
+
+					}, {
+
+
+						"estadoCielo": [{
+								"id": "periodo",
+								"descripcion": "Periodo de validez para el estado del cielo (00-06, 06-12, 12-18, 18-24, 00-12, 00-24, 12-24)",
+								"tipo_datos": "string",
+								"requerido": false
+							},
+
+							{
+								"id": "descripcion",
+								"descripcion": "Descripción del estado del cielo",
+								"tipo_datos": "string",
+								"requerido": false
+							},
+
+
+							{
+								"id": "value",
+								"descripcion": "Código del estado del Cielo",
+								"tipo_datos": "string",
+								"requerido": false
+							}
+						]
+
+					}, {
+						"viento": [{
+
+
+								"id": "periodo",
+								"descripcion": "Periodo de validez para el viento (00-06, 06-12, 12-18, 18-24, 00-12, 00-24, 12-24)",
+								"tipo_datos": "string",
+								"requerido": false
+							},
+
+							{
+								"id": "direccion",
+								"descripcion": "Dirección del viento (N/Norte, NE/Nordeste, E/Este, SE/Sudeste, S/Sur, SO/Suroeste, O / Oeste, NO / Noroeste, C / Calma ",
+								"tipo_datos": "string",
+								"requerido": false
+							}, {
+								"id": "velocidad",
+								"descripcion": "Velocidad del viento",
+								"tipo_datos": "string",
+								"unidad": "Kilómetros por hora (km/h)",
+								"requerido": false
+							}
+						]
+
+					}, {
+
+						"rachaMax": [{
+								"id": "periodo",
+								"descripcion": "Periodo de validez para la racha máxima (00-06, 06-12, 12-18, 18-24, 00-12, 00-24, 12-24)",
+								"tipo_datos": "string",
+								"requerido": false
+							},
+
+							{
+								"id": "value",
+								"descripcion": "Valor de la Racha máxima",
+								"tipo_datos": "string",
+								"unidad": "Kilómetros por hora (km/h)",
+								"requerido": false
+							}
+						]
+
+					}, {
+
+						"temperatura": [{
+
+								"id": "maxima",
+								"descripcion": "Temperatura máxima",
+								"tipo_datos": "string",
+								"unidad": "Grados celsius",
+								"requerido": false
+							},
+
+							{
+								"id": "minima",
+								"descripcion": "Temperatura mínima",
+								"tipo_datos": "string",
+								"unidad": "Grados celsius",
+								"requerido": false
+
+							}, {
+
+								"dato": [{
+
+										"id": "hora",
+										"descripcion": "Hora de la Temperatura prevista (06/12/18/24)",
+										"tipo_datos": "byte",
+										"requerido": false
+
+									},
+
+									{
+										"id": "value",
+										"descripcion": "Valor de la Temperatura prevista",
+										"tipo_datos": "string",
+										"unidad": "Grados celsius",
+										"requerido": false
+									}
+								]
+							}
+						]
+
+					}, {
+
+						"sensTermica": [{
+
+								"id": "maxima",
+								"descripcion": "Sensación térmica máxima",
+								"tipo_datos": "string",
+								"unidad": "Grados celsius",
+								"requerido": false
+							},
+
+							{
+								"id": "minima",
+								"descripcion": "Sensación térmica mínima",
+								"tipo_datos": "string",
+								"unidad": "Grados celsius",
+								"requerido": false
+
+							}, {
+
+								"dato": [{
+
+										"id": "hora",
+										"descripcion": "Hora de la sensación térmica prevista (06/12/18/24)",
+										"tipo_datos": "byte",
+										"requerido": false
+
+									},
+
+									{
+										"id": "value",
+										"descripcion": "Valor de la sensación térmica prevista",
+										"tipo_datos": "string",
+										"unidad": "Grados celsius",
+										"requerido": false
+									}
+								]
+							}
+						]
+
+
+					}, {
+
+						"humedadRelativa": [{
+
+								"id": "maxima",
+								"descripcion": "Humedad relativa máxima",
+								"tipo_datos": "string",
+								"unidad": "Tanto por ciento (%)",
+								"requerido": false
+							},
+
+							{
+								"id": "minima",
+								"descripcion": "Humedad relativa mínima",
+								"tipo_datos": "string",
+								"unidad": "Tanto por ciento (%)",
+								"requerido": false
+
+							}, {
+
+								"dato": [{
+
+										"id": "hora",
+										"descripcion": "Hora de la humedad relativa prevista (06/12/18/24)",
+										"tipo_datos": "byte",
+										"requerido": false
+
+									},
+
+									{
+										"id": "value",
+										"descripcion": "Valor de la humedad relativa prevista",
+										"tipo_datos": "string",
+										"unidad": "Tanto por ciento (%)",
+										"requerido": false
+									}
+								]
+							}
+						]
+
+					}, {
+						"uvMax": [{
+							"id": "value",
+							"descripcion": "Índice ultravioleta máximo",
+							"tipo_datos": "string",
+							"requerido": false
+
+						}]
+
+					}
+				]
+			}]
+		}
+	]
+}]

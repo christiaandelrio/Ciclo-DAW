@@ -1,0 +1,86 @@
+Array
+(
+    [authenticationResultCode] => ValidCredentials
+    [brandLogoUri] => http://dev.virtualearth.net/Branding/logo_powered_by.png
+    [copyright] => Copyright © 2023 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.
+    [resourceSets] => Array
+        (
+            [0] => Array
+                (
+                    [estimatedTotal] => 1
+                    [resources] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [__type] => Location:http://schemas.microsoft.com/search/local/ws/rest/v1
+                                    [bbox] => Array
+                                        (
+                                            [0] => 42.26093830782
+                                            [1] => -8.7720871431306
+                                            [2] => 42.268663742961
+                                            [3] => -8.7581691282317
+                                        )
+
+                                    [name] => 36940, Galicia / Galiza, España
+                                    [point] => Array
+                                        (
+                                            [type] => Point
+                                            [coordinates] => Array
+                                                (
+                                                    [0] => 42.26480103
+                                                    [1] => -8.76512814
+                                                )
+
+                                        )
+
+                                    [address] => Array
+                                        (
+                                            [adminDistrict] => Galicia / Galiza
+                                            [adminDistrict2] => Pontevedra
+                                            [countryRegion] => España
+                                            [formattedAddress] => 36940, Galicia / Galiza, España
+                                            [locality] => Cangas
+                                            [postalCode] => 36940
+                                        )
+
+                                    [confidence] => Medium
+                                    [entityType] => Postcode1
+                                    [geocodePoints] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [type] => Point
+                                                    [coordinates] => Array
+                                                        (
+                                                            [0] => 42.26480103
+                                                            [1] => -8.76512814
+                                                        )
+
+                                                    [calculationMethod] => Rooftop
+                                                    [usageTypes] => Array
+                                                        (
+                                                            [0] => Display
+                                                        )
+
+                                                )
+
+                                        )
+
+                                    [matchCodes] => Array
+                                        (
+                                            [0] => Good
+                                            [1] => UpHierarchy
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [statusCode] => 200
+    [statusDescription] => OK
+    [traceId] => 65370b9f6deb49dab1290d923b561f11|DU00002E28|0.0.0.1
+)
