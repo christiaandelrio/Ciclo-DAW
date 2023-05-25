@@ -1,0 +1,26 @@
+{
+    "name": "chris/tarea8",
+    "description": "Aplicacion Reparto",
+    "type": "project",
+    "license": "gnu/gpl",
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Clases\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chris",
+            "email": "mail@mail.com"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.14",
+        "google/cloud-logging": "^1.5",
+        "jaxon-php/jaxon-core": "~4.0",
+        "jaxon-php/jaxon-js": "*"     
+    }
+}
