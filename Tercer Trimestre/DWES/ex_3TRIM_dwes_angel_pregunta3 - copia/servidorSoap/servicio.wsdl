@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Clases.Operaciones" targetNamespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php">
+  <types>
+    <xsd:schema targetNamespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </xsd:schema>
+  </types>
+  <portType name="Clases.OperacionesPort">
+    <operation name="getPvp">
+      <documentation>Obtiene el PVP de un producto a partir de su codigo</documentation>
+      <input message="tns:getPvpIn"/>
+      <output message="tns:getPvpOut"/>
+    </operation>
+    <operation name="getStock">
+      <documentation>Devuelve el numero de unidades que existen en una tienda de un producto</documentation>
+      <input message="tns:getStockIn"/>
+      <output message="tns:getStockOut"/>
+    </operation>
+    <operation name="getFamilias">
+      <documentation>Devuelve un array con los codigos de todas las familias</documentation>
+      <input message="tns:getFamiliasIn"/>
+      <output message="tns:getFamiliasOut"/>
+    </operation>
+    <operation name="getProductosFamilia">
+      <documentation>Devuelve un array con los nombres de los productos de una familia</documentation>
+      <input message="tns:getProductosFamiliaIn"/>
+      <output message="tns:getProductosFamiliaOut"/>
+    </operation>
+    <operation name="getNombreProducto">
+      <documentation>Devuelve el nombre de un producto</documentation>
+      <input message="tns:getNombreProductoIn"/>
+      <output message="tns:getNombreProductoOut"/>
+    </operation>
+    <operation name="getMontante">
+      <documentation>Devuelve el montante de los productos de una tienda</documentation>
+      <input message="tns:getMontanteIn"/>
+      <output message="tns:getMontanteOut"/>
+    </operation>
+  </portType>
+  <binding name="Clases.OperacionesBinding" type="tns:Clases.OperacionesPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getPvp">
+      <soap:operation soapAction="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php#getPvp"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </output>
+    </operation>
+    <operation name="getStock">
+      <soap:operation soapAction="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php#getStock"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </output>
+    </operation>
+    <operation name="getFamilias">
+      <soap:operation soapAction="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php#getFamilias"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </output>
+    </operation>
+    <operation name="getProductosFamilia">
+      <soap:operation soapAction="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php#getProductosFamilia"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </output>
+    </operation>
+    <operation name="getNombreProducto">
+      <soap:operation soapAction="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php#getNombreProducto"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </output>
+    </operation>
+    <operation name="getMontante">
+      <soap:operation soapAction="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php#getMontante"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+      </output>
+    </operation>
+  </binding>
+  <message name="getPvpIn">
+    <part name="codP" type="xsd:int"/>
+  </message>
+  <message name="getPvpOut">
+    <part name="return" type="xsd:float"/>
+  </message>
+  <message name="getStockIn">
+    <part name="codP" type="xsd:int"/>
+    <part name="codT" type="xsd:int"/>
+  </message>
+  <message name="getStockOut">
+    <part name="return" type="xsd:int"/>
+  </message>
+  <message name="getFamiliasIn"/>
+  <message name="getFamiliasOut">
+    <part name="return" type="soap-enc:Array"/>
+  </message>
+  <message name="getProductosFamiliaIn">
+    <part name="codF" type="xsd:string"/>
+  </message>
+  <message name="getProductosFamiliaOut">
+    <part name="return" type="soap-enc:Array"/>
+  </message>
+  <message name="getNombreProductoIn">
+    <part name="codP" type="xsd:int"/>
+  </message>
+  <message name="getNombreProductoOut">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="getMontanteIn">
+    <part name="codT" type="xsd:int"/>
+  </message>
+  <message name="getMontanteOut">
+    <part name="return" type="xsd:float"/>
+  </message>
+  <service name="Clases.OperacionesService">
+    <port name="Clases.OperacionesPort" binding="tns:Clases.OperacionesBinding">
+      <soap:address location="http://localhost/ex_3TRIM_dwes_angel/servidorSoap/servicioW.php"/>
+    </port>
+  </service>
+</definitions>
