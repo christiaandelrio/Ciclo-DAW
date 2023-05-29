@@ -1,0 +1,24 @@
+{
+    "name": "david/tarea6",
+    "description": "Practica Unidad6",
+    "type": "project",
+    "license": "gnu/gpl",
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Clases\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "David García Cancio",
+            "email": "davidgaca@iesrodeira.gal"
+        }
+    ],
+    "require": {
+        "php2wsdl/php2wsdl": "^0.6.1",
+        "wsdl2phpgenerator/wsdl2phpgenerator": "^3.4"
+    }
+}
