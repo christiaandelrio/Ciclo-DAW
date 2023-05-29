@@ -1,0 +1,24 @@
+{
+    "name": "usuario/usuario",
+    "description": "Ejemplo JQuery",
+    "type": "project",
+    "license": "gnu/gpl",
+    "minimum-stability": "stable",
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Clases\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "usuario",
+            "email": "usuario@correo.es"
+        }
+    ],
+    "require": {
+        "yepsua/jquery4php": "*"
+    }
+}
