@@ -1,0 +1,31 @@
+Almacenamiento de datos:
+Puedes almacenar datos en el localStorage utilizando la sintaxis localStorage.setItem(key, value), donde key es el nombre del dato y value es su valor. Ambos deben ser de tipo cadena de texto. Por ejemplo:
+
+javascript
+Copy code
+localStorage.setItem('nombre', 'Juan');
+Este código guarda el valor 'Juan' bajo la clave 'nombre' en el localStorage.
+
+Obtención de datos:
+Para obtener los datos almacenados, utilizamos localStorage.getItem(key), donde key es la clave del dato que queremos obtener. Por ejemplo:
+
+javascript
+Copy code
+const nombre = localStorage.getItem('nombre');
+console.log(nombre); // Imprime 'Juan' en la consola
+En este caso, obtenemos el valor almacenado bajo la clave 'nombre' y lo asignamos a la variable nombre.
+
+Eliminación de datos:
+Si deseas eliminar un dato específico del localStorage, puedes usar localStorage.removeItem(key), donde key es la clave del dato que deseas eliminar. Por ejemplo:
+
+javascript
+Copy code
+localStorage.removeItem('nombre');
+Este código eliminará el dato almacenado bajo la clave 'nombre' del localStorage.
+
+Eliminación de todos los datos:
+Si necesitas eliminar todos los datos almacenados en el localStorage, puedes utilizar localStorage.clear(). Este método borra todos los datos guardados y deja el localStorage vacío.
+
+Es importante tener en cuenta que los datos almacenados en el localStorage están limitados a cadenas de texto. Si necesitas almacenar otros tipos de datos, como números o objetos, puedes utilizar JSON.stringify() para convertirlos a cadena de texto antes de guardarlos, y JSON.parse() para convertirlos de nuevo al formato original al obtenerlos.
+
+Aquí tienes una introducción básica al uso del localStorage en JavaScript. Recuerda que los datos almacenados en el localStorage están asociados al dominio y al navegador específico en el que se guardaron, por lo que no son accesibles desde otros dominios o navegadores.
