@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script defer src="main.js"></script>
+    </head>
+    <body style="font-family: monospace">
+        <label for="frase">Introduce una frase:</label>
+        <input type="text" id="frase" name="frase" placeholder="Introduce una frase" required>   
+
+        <label for="dificultad">Introduce la dificultad (de 0 a 50)</label>
+        <input type="number" name="dificultad" id="dificultad"/>
+
+        <button name="jugar" id="jugar">Jugar</button><br>
+        <button name="limpiar" id="limpiar">Limpiar</button><br>
+        <br>
+        <p id="contador"></p>
+        <br>
+        <p id="intentos"></p>
+        <div id="tablero">
+
+        </div>
+
+        <div id="errores">
+
+        </div>
+    </body>
+</html>
