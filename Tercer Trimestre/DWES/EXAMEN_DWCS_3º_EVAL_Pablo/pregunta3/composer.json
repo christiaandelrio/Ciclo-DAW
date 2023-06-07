@@ -1,0 +1,24 @@
+{
+    "name": "pregunta3",
+    "description": "Examen",
+    "type": "project",
+    "license": "gnu/gpl",
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Clases\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "examen DWES ",
+            "email": "ies.rodeira@iesrodeira.gal"
+        }
+    ],
+    "require": {
+        "php2wsdl/php2wsdl": "^0.6.1",
+        "wsdl2phpgenerator/wsdl2phpgenerator": "^3.4"
+    }
+}
