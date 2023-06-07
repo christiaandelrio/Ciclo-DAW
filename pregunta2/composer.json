@@ -1,0 +1,13 @@
+{
+    "name": "chris/pregunta2",
+    "description": "Pregunta 2 Examen",
+    "type": "project",
+    "license": "gnu/gpl",
+    "config": {
+        "optimize-autoloader": true
+    },
+    "require": {
+        "jaxon-php/jaxon-core": "~4.0",
+        "jaxon-php/jaxon-js": "*"        
+    }
+}
