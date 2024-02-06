@@ -11,18 +11,32 @@ import java.util.Scanner;
 public class Main {
     
     static Scanner sc = new Scanner(System.in); //Defino un scanner para la entrada de datos
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //Creo una cuenta
+        Cuenta ccc = new Cuenta(12345678, 12345, 100000, "Patricia");
+        //Definición de variables
+        int pin;
+        
+        //Pedimos al usuario el pin de la cuenta
+        System.out.println("Bienvenido, introduce el PIN de tu cuenta:");
+        pin = sc.nextInt();
+        sc.nextLine();
+        
+        do{
+            System.out.println("PIN erróneo, vuelve a intentarlo");
+            pin = sc.nextInt();
+            sc.nextLine();
+        }while(pin != ccc.getPin());
     }
     
     
-    public static int mostrarMenu(){
+/*    public static int mostrarMenu(){
     
         return opcion;
-    }
+    }*/
     
 }
